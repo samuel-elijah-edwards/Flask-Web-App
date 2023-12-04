@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %}Upload{% endblock %} {% block
+content %}
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" id="file" name="file" accept=".pdf, .txt, .rtf">
+    <br />
+    <br />
+    <button type="submit">Upload File</button>
+</form>
+
+{% endblock %}

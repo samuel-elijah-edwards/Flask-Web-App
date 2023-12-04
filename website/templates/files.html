@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Your Files</h2>
+  <ul class=" list-group list-group-flush" id="files">
+    {% for file in files %}
+      <li class="list-group-item">
+        {{ file.filename }}
+        <a href="{{ url_for('views.open_file', file_id=file.id) }}" target="_blank">Open</a>
+        <button type="button" class="close" onclick="deleteFile({{ file.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
