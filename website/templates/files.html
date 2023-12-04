@@ -2,11 +2,17 @@
 
 {% block content %}
   <h2>Your Files</h2>
-  <ul class=" list-group list-group-flush" id="files">
+  <ul class="list-group list-group-flush" id="files">
     {% for file in files %}
       <li class="list-group-item">
         {{ file.filename }}
         <a href="{{ url_for('views.open_file', file_id=file.id) }}" target="_blank">Open</a>
+
+        <form method="post" action="{{ url_for('views.transcribe') }}" style="display: inline;">
+          <input type="hidden" name="file_id" value="{{ file.id }}">
+          <button type="submit" class="btn btn-primary">Transcribe</button>
+        </form>
+
         <button type="button" class="close" onclick="deleteFile({{ file.id }})">
           <span aria-hidden="true">&times;</span>
         </button>
