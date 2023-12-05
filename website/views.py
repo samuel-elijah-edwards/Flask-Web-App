@@ -113,6 +113,24 @@ def get_file_by_id(file_id):
     return File.query.get(file_id)
 
 
+# @views.route("/transcribe", methods=['POST'])
+# @login_required
+# def transcribe_directly():
+#     if request.method == 'POST':
+#         file_id = request.form.get('file_id')
+
+#         if file_id is None:
+#             flash('File ID is missing.', category='error')
+#             return redirect(url_for('views.transcribe'))  # Redirect to the appropriate page
+
+#         else:
+#             # Retrieve the file with file_id from your database or wherever you store file information
+#             file = get_file_by_id(file_id)
+
+
+
+
+
 @views.route("/files", methods=['POST'])
 @login_required
 def transcribe():
